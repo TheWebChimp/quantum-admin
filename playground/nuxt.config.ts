@@ -1,5 +1,5 @@
 export default defineNuxtConfig({
-  modules: ['../src/module'],
-  myModule: {},
-  devtools: { enabled: true }
+	modules: [ '../src/module' ],
+	quantumAdmin: {},
+	devtools: { enabled: true }
 })
