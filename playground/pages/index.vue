@@ -1,5 +1,6 @@
 <template>
 	<p>INDEX</p>
+	<color-mode-switch />
 </template>
 
 <script setup>

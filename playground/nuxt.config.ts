@@ -1,3 +1,4 @@
+// @ts-ignore
 export default defineNuxtConfig({
 	modules: [ '../src/module' ],
 	quantumAdmin: {},
