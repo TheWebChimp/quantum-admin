@@ -8,8 +8,13 @@ export default defineNuxtRouteMiddleware(async (to, from) => {
 
 	if (process.client) {
 		const authToken = localStorage.getItem("authToken")
+		console.log('authToken', authToken)
 
 		if (authToken) await me(authToken)
-		if (!user.value) return navigateTo('/login')
+		if (!user.value) {
+			setTimeout(() => {
+				return navigateTo('/login')
+			}, 500);
+		}
 	}
 })

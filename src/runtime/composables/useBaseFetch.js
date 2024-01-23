@@ -5,7 +5,7 @@ export const useBaseFetch = (request, opts = {}) => {
 	const config = useRuntimeConfig();
 	const auth = useAuth();
 
-	const baseOpts = { baseURL: config.public.baseURL, ...opts };
+	const baseOpts = { baseURL: 'http://localhost:1337', ...opts };
 
 	// If user is logged in, add token to headers
 	const authUser = useAuthUser();

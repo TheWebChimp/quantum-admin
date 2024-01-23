@@ -49,6 +49,8 @@ export const useAuth = () => {
 	};
 
 	const me = async (token) => {
+		console.log('me', authUser.value);
+
 		if(!authUser.value) {
 			try {
 				if(!!token && token !== 'null') {

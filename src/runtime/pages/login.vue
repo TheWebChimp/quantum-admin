@@ -21,6 +21,8 @@
 </template>
 
 <script setup>
+	definePageMeta({ title: 'Login' });
+
 </script>
 
 <style scoped lang="sass">

@@ -18,6 +18,8 @@
 </template>
 
 <script setup>
+	// Set title
+	definePageMeta({ title: 'Quantum Admin' });
 
 	// use middleware
 	definePageMeta({ middleware: 'auth' });

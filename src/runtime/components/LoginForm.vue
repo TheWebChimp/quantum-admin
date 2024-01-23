@@ -1,5 +1,5 @@
 <template>
-	<form>
+	<form @submit="doLogin">
 		<h3 class="mb-0">Welcome</h3>
 		<p class="text-muted">Ready to change the world?</p>
 
@@ -10,6 +10,7 @@
 				id="email"
 				autocomplete="username"
 				placeholder="Email"
+				v-model="credentials.login"
 			>
 			<label for="email" class="form-label">Email</label>
 		</div>
@@ -20,6 +21,7 @@
 				id="password"
 				autocomplete="current-password"
 				placeholder="Password"
+				v-model="credentials.password"
 			>
 			<label for="password" class="form-label">Password</label>
 		</div>
@@ -32,6 +34,29 @@
 </template>
 
 <script setup>
+	import { useAuth } from '../composables/useAuth.js';
+	const { login } = useAuth();
+
+	const loading = ref(false);
+	const loginError = ref(false);
+	const loginErrorMessage = ref('');
+	const credentials = ref({
+		login: '',
+		password: '',
+	});
+
+	const doLogin = async (event) => {
+		event.preventDefault();
+
+		loading.value = true;
+		const { error } = await login(credentials.value);
+		loading.value = false;
+
+		loginErrorMessage.value = !!error.value ? error.value.data.message : '';
+		loginError.value = !!error.value;
+
+		if(!error.value) await navigateTo('/dashboard');
+	};
 
 </script>
 

@@ -2,7 +2,7 @@
 	<div class="site-user ms-auto d-flex align-items-center p-2 position-relative">
 		<p class="mb-0">Welcome <strong>Admin</strong></p>
 		<img
-			src="https://leadsapi.ag1.tech/users/1/avatar"
+			src=""
 			class="avatar ratio ratio-1x1 rounded-circle ms-2"
 			alt=""
 		>
@@ -12,6 +12,7 @@
 					<a
 						class="dropdown-item"
 						href="#"
+						@click.prevent="logout"
 					>Logout</a>
 				</li>
 				<li class="p-2">
@@ -23,7 +24,9 @@
 </template>
 
 <script setup>
-	import ColorModeSwitch from './ColorModeSwitch.vue';
+	import { useAuth } from '../composables/useAuth.js';
+	const { logout } = useAuth();
+
 </script>
 
 <style lang="sass" scoped>
